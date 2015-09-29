@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">박빙</string>
+    <string name="name1">name1</string>
+    <string name="name2">name2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+</resources>

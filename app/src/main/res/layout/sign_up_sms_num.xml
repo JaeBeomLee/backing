@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+    <!--인증번호 받을 번호입력 창-->
+    <!--지금은 안씁니다-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+         >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#000000"
+            android:text="본인 휴대전화 번호를 입력해주세요"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="24dp"
+            android:paddingLeft="8dp"
+            android:background="@drawable/edittext_style"
+            android:layout_weight="1"
+            android:inputType="phone"/>
+
+        <Button
+            android:id="@+id/num_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#EF5350"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:text="인증번호 보내기" />
+    </LinearLayout>
+</LinearLayout>

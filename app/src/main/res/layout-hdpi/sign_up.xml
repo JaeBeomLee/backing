@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--작은화면 회원가입 페이자-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--배경 -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/back_1"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:background="@drawable/linear_style"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/linearLayout">
+
+        <!--로고-->
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_launcher"
+            android:layout_margin="15dp"
+             />
+
+        <!--이메일 입력창-->
+        <EditText
+            android:textSize="15dp"
+            android:id="@+id/signup_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:hint="이메일"
+            android:textColor="#000000"
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="12dp"
+            android:background="@drawable/edittext_style"
+            />
+        <!--비밀번호, 비밀번호 확인 레이아웃-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
+            <!--비밀번호 설정-->
+            <EditText
+                android:textSize="15dp"
+                android:id="@+id/signup_pw"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="비밀번호"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@drawable/edittext_style"/>
+
+            <!--비밀번호 확인 설정 -->
+            <EditText
+                android:textSize="15dp"
+                android:id="@+id/signup_pw2"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:hint="비밀번호확인"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:background="@drawable/edittext_style"
+                />
+        </LinearLayout>
+        <!--이름 입력창-->
+        <EditText
+            android:textSize="15dp"
+            android:id="@+id/signup_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:inputType="text"
+            android:hint="이름"
+            android:paddingLeft="12dp"
+            android:background="@drawable/edittext_style"
+            />
+
+        <!--생년월일 레이아웃-->
+        <!--클릭시 다이얼로그 띄울 것-->
+        <LinearLayout
+            android:id="@+id/signup_birth"
+            android:onClick="signUpBirth"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:background="@drawable/edittext_style">
+
+            <TextView
+                android:id="@+id/signup_birth_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="생년월일"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"/>
+
+        </LinearLayout>
+
+        <!--남성 여성 설정 -->
+        <!--man,woman style able, unable 레이아웃이 배경으로적용-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/signup_man"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="남성"
+                android:textSize="15dp"
+                android:typeface="sans"
+                android:textColor="#ffffff"
+                android:background="@drawable/man_style_able"
+                android:shadowColor="#00000000"
+                android:stateListAnimator="@null"/>
+            <Button
+                android:id="@+id/signup_woman"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="여성"
+                android:textSize="15dp"
+                android:typeface="sans"
+                android:textColor="#e74c3c"
+                android:background="@drawable/woman_style_unable"
+                android:stateListAnimator="@null"/>
+
+        </LinearLayout>
+
+        <!--회원가입 버튼-->
+        <Button
+            android:id="@+id/sign_up_bt"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:stateListAnimator="@null"
+            android:background="#fe5923"
+            android:text="회원가입"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            />
+    </LinearLayout>
+</RelativeLayout>

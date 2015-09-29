@@ -1,0 +1,16 @@
+playerList~ = 팀의 선수단 관련 클래스들
+stadium~ = 경기 구장 관련 클래스들
+mainTabFragment~ = 메인 화면 아래에 뷰페이져에 들어갈 클래스들
+teamActivity = 팀 관리 엑티비티 클래스
+MainPage = 박빙 앱 메인 엑티비티 클래스
+header~ = 메인에 들어가는 화면 중 상단 뷰페이져에 들어가는 클래스들
+
+2015. 09. 17.
+패키지 별 이름 정리
+main : 메인엑티비티 관련
+(main 내부) soccer : 축구 탭 관련 리스트 페이지
+(main 내부) total : 전체 탭 관련 리스트 페이지
+(main 내부) searchResult : 메인에서 검색해 나온 결과 엑티비티
+stadium : 경기장 정보 엑티비티 관련
+teamPlayer : 팀 정보 엑티비티 관련
+DummyFragemnt : 임시용

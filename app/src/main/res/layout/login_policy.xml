@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!--서비스 이용 약관-->
+    <!--지금 안씁니다.-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#F44336"
+        android:id="@+id/up"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서비스 이용 약관"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#eeeeee">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#f5f5f5"
+                    >
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:paddingTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColor="#000000"
+                            android:text=" 나는 강산에 프른 하늘을 벗 삼아 살고 있지만 이는 매우 지루한 일이다. 왜냐하면 그냥 처다보는것 자체가 매우 지루하기 때문이다. 그렇기 때문에 나는 언젠가 이 일상을 벗어날 것이다. 아마 세상 사람들은 모를꺼다 이 지루함이 얼마나 일상적인지 그래서 우리는 이것이다 하고 집중해야 국민들의 마음을 얻어 분산시키고자 하는 그런 마음을 간절히 가져야 온 우주가 도와줄 것이다 말하는 것을 가지고 너무 까는 것 아닌가 그런 생각을 해봅니다. 그래서 더욱 강력한 무기인 이무기로 한번 싸워 볼까하지만 이무기는 내 무기가 아니기 때문에 어떠한 것도 할 수 없는 그런 생물입니다."
+                            />
+
+                        </ScrollView>
+                </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <Button
+                android:id="@+id/privacy_policy_bt"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="#EF5350"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
