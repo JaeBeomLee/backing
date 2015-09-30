@@ -22,6 +22,7 @@
         android:theme="@style/bacving_theme" >
         <activity android:name=".splash"
             android:screenOrientation="portrait"
+            android:theme="@style/bacving_theme_all"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,6 +70,7 @@
         <!-- [END gcm_registration_service] -->
         <activity android:name=".Login.preLayout"
             android:screenOrientation="portrait"
+            android:theme="@style/bacving_theme_all"
             >
         </activity>
         <activity android:name=".Login.Certificate"

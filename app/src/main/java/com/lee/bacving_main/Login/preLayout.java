@@ -152,6 +152,33 @@ public class preLayout extends AppCompatActivity {
         return build.create();
     }
 
+    private AlertDialog DialogWrong(){
+        final AlertDialog.Builder build = new AlertDialog.Builder(this);
+        build.setTitle("이메일, 비밀번호 오류");
+        build.setMessage("이메일이나 비밀번호가 일치하지 않습니다. 이메일과 비밀번호를 확인해주세요");
+        build.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog2.dismiss();
+
+            }
+        });
+        return build.create();
+    }
+
+    private AlertDialog DialogNetwork(){
+        final AlertDialog.Builder build = new AlertDialog.Builder(this);
+        build.setTitle("인터넷 연결 오류");
+        build.setMessage("인터넷과 연결 되 있지 않습니다 인터넷을 연결 해 주세요.");
+        build.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog2.dismiss();
+
+            }
+        });
+        return build.create();
+    }
     public void Login(){
         final ProgressDialog dialog = ProgressDialog.show(this, "", "잠시만 기다려 주세요",true);
 
@@ -195,6 +222,7 @@ public class preLayout extends AppCompatActivity {
             userToken = json.getString("token");
         } catch (JSONException e) {
             e.printStackTrace();
+
         } catch (NullPointerException e){
             e.printStackTrace();
 
@@ -227,9 +255,8 @@ public class preLayout extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    builder.setMessage("이메일이나 비밀번호가 일치하지 않습니다. 이메일과 비밀번호를 확인해주세요")
-                            .setPositiveButton("확인", null)
-                            .show();
+                    alertDialog2 = DialogWrong();
+                    alertDialog2.show();
                 }
             });
 //            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
@@ -279,10 +306,8 @@ public class preLayout extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    builder.setTitle("인터넷 연결 오류")
-                            .setMessage("인터넷 연결이 되어 있지 않습니다. 인터넷 연결을 확인해 주세요.")
-                            .setPositiveButton("확인", null)
-                            .show();
+                    alertDialog2 = DialogNetwork();
+                    alertDialog2.show();
                 }
             });
 

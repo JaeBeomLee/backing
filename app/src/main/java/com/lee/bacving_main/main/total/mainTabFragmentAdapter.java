@@ -75,9 +75,9 @@ public class mainTabFragmentAdapter extends RecyclerView.Adapter<mainTabFragment
                 subViewHoder1.mainMatchDateYear.setText(main.getMatchDataYear() + "년");
                 subViewHoder1.mainMatchDateMonth.setText(main.getMatchDataMonth() + "월");
                 subViewHoder1.mainMatchDateDate.setText(main.getMatchDataDate() + "일");
-                subViewHoder1.mainMatchDateApm.setText(main.getMatchDataApm());
-                subViewHoder1.mainMatchDateHour.setText(main.getMatchDataHour());
-                subViewHoder1.mainMatchDateMinute.setText(main.getMatchDataMinute());
+                subViewHoder1.mainMatchDateApm.setText(main.getMatchDataApm() + " ");
+                subViewHoder1.mainMatchDateHour.setText(main.getMatchDataHour() + "시 ");
+                subViewHoder1.mainMatchDateMinute.setText(main.getMatchDataMinute()+"분 ");
                 subViewHoder1.mainMatchStadium.setText(main.getMatchStadium());
                 subViewHoder1.mainAddEventButton.setOnClickListener(new View.OnClickListener() {
                     @Override
