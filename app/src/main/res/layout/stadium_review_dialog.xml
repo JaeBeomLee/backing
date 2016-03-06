@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리뷰등록"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"
+            />
+        <RatingBar
+            android:id="@+id/stadium_review_dialog_rating"
+            android:theme="@style/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            />
+        <EditText
+            android:id="@+id/stadium_review_dialog_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="코멘트를 남겨주세요."
+            android:textSize="13sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            />
+        <Button
+            android:id="@+id/stadium_review_dialog_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="등록"
+            android:textColor="#ffffff"
+            android:background="#019788"
+            />
+    </LinearLayout>
+
+</LinearLayout>

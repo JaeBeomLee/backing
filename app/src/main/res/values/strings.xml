@@ -2,8 +2,16 @@
     <string name="app_name">박빙</string>
     <string name="name1">name1</string>
     <string name="name2">name2</string>
+    <string name="name3">name3</string>
+    <string name="name4">name4</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-
+    <string-array name="sports">
+        <item>축구</item>
+        <item>농구</item>
+        <item>야구</item>
+        <item>배구</item>
+    </string-array>
 </resources>

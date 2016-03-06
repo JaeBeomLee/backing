@@ -1,5 +1,6 @@
 package com.mondaychicken.bacving.main.total;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,26 +8,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import bacving.lee.bacving_main.R;
+import com.bumptech.glide.Glide;
+import com.mondaychicken.bacving.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by ijaebeom on 2015. 9. 10..
  */
 public class mainTabFragmentAdapter extends RecyclerView.Adapter<mainTabFragmentViewHolder> {
 
-    List<mainTabFragmentMainData> mainData;
+    List<mainTabFragmentMainData> mainData = new ArrayList<mainTabFragmentMainData>();
 
     private static final int MAINHOLDER = 0;
     private static final int SUBHOLDER = 1;
-
-    public mainTabFragmentAdapter(List<mainTabFragmentMainData> mainData){
-        this.mainData = mainData;
-
-    }
-
+    Context context;
     public void add(mainTabFragmentMainData main, int position){
         mainData.add(position, main);
         notifyItemInserted(position);
@@ -36,19 +35,20 @@ public class mainTabFragmentAdapter extends RecyclerView.Adapter<mainTabFragment
 
     @Override
     public mainTabFragmentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
         switch (viewType){
             case MAINHOLDER :
                 ViewGroup viewMain = (ViewGroup)inflater.inflate(R.layout.main_list_view1, parent, false);
-                mainTabFragmentMainViewHolder1 mainViewHolder1 = new mainTabFragmentMainViewHolder1(viewMain, parent.getContext());
+                mainTabFragmentMainViewHolder1 mainViewHolder1 = new mainTabFragmentMainViewHolder1(viewMain, context);
                 return mainViewHolder1;
             case SUBHOLDER :
                 ViewGroup viewSub = (ViewGroup)inflater.inflate(R.layout.main_list_view2, parent, false);
-                mainTabFragmentSubViewHoder1 subViewHoder1 = new mainTabFragmentSubViewHoder1(viewSub, parent.getContext());
+                mainTabFragmentSubViewHoder1 subViewHoder1 = new mainTabFragmentSubViewHoder1(viewSub, context);
                 return subViewHoder1;
             default:
                 ViewGroup viewSub0 = (ViewGroup)inflater.inflate(R.layout.main_list_view2, parent, false);
-                mainTabFragmentSubViewHoder1 subViewHoder0 = new mainTabFragmentSubViewHoder1(viewSub0, parent.getContext());
+                mainTabFragmentSubViewHoder1 subViewHoder0 = new mainTabFragmentSubViewHoder1(viewSub0, context);
                 return subViewHoder0;
         }
     }
@@ -62,8 +62,9 @@ public class mainTabFragmentAdapter extends RecyclerView.Adapter<mainTabFragment
             case MAINHOLDER:
                 mainTabFragmentMainViewHolder1 mainViewHolder1 = (mainTabFragmentMainViewHolder1)holder;
                 mainViewHolder1.mainTeamName.setText(main.getTeamName());
-                mainViewHolder1.mainTeamLogo.setImageBitmap(main.getTeamLogo());
-                mainViewHolder1.mainBackground.setImageBitmap(main.getMainBackground());
+                Glide.with(context).load(main.getMainBackground()).into(mainViewHolder1.mainBackground);
+                Glide.with(context).load(main.getTeamLogo()).into(mainViewHolder1.mainTeamLogo);
+                Glide.get(context).clearMemory();
                 break;
             case SUBHOLDER:
                 mainTabFragmentSubViewHoder1 subViewHoder1 = (mainTabFragmentSubViewHoder1)holder;

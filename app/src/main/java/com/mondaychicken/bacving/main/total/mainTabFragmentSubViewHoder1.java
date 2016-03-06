@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
 
 public class mainTabFragmentSubViewHoder1 extends mainTabFragmentViewHolder {
     TextView mainNextMatch, mainMatchDateYear, mainMatchDateMonth,mainMatchDateDate,mainMatchDateApm, mainMatchDateHour, mainMatchDateMinute, mainMatchStadium;

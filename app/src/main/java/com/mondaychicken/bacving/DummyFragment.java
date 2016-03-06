@@ -13,7 +13,7 @@ public class DummyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(bacving.lee.bacving_main.R.layout.tab_1, container, false);
+        View v = inflater.inflate(com.mondaychicken.bacving.R.layout.tab_1, container, false);
 
         return v;
     }

@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/ic_launcher"
+            android:src="@drawable/non_bg_512_red"
             android:layout_margin="15dp"
              />
 
@@ -175,7 +175,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:stateListAnimator="@null"
-            android:background="#fe5923"
+            android:background="#f44336"
             android:text="회원가입"
             android:textSize="15dp"
             android:textColor="#ffffff"

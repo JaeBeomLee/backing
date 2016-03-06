@@ -8,26 +8,38 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
 import com.mondaychicken.bacving.gcm.QuickstartPreferences;
 import com.mondaychicken.bacving.gcm.RegistrationIntentService;
 import com.mondaychicken.bacving.main.MainPage;
+import com.viewpagerindicator.CirclePageIndicator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,10 +57,13 @@ import java.net.URL;
 /**
  * Created by ijaebeom on 15. 7. 3..
  */
-public class preLayout extends AppCompatActivity {
+public class preLayout extends AppCompatActivity implements ViewSwitcher.ViewFactory{
 
-    Button preLogin, preSignup, loginBt;
-    Animation animation;
+    Button preLogin, preSignup, loginBt, preFacebookLogin;
+    TextView privacyPolicy;
+    ImageSwitcher background;
+    ViewPager pager;
+    CirclePageIndicator indicator;
 
     private AlertDialog alertDialog = null;
     private AlertDialog alertDialog2 = null;
@@ -60,28 +75,78 @@ public class preLayout extends AppCompatActivity {
     String loginPassword;
     String logintoken;
     String server = "http://52.68.69.47/api/member/index.php";
-    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     String serverResult;
-    android.support.v7.app.AlertDialog.Builder builder;
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     private BroadcastReceiver RegistrationBroadcastReceiver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main);
+        setContentView(R.layout.login_main2);
 
         registBroadcastReceiver();
         getInstanceIdToken();
 
+        LoadPreference(this);
+
+        background = (ImageSwitcher)findViewById(R.id.pre_background);
+        pager = (ViewPager)findViewById(R.id.pre_pager);
+
+        background.setFactory(this);
+        background.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+        background.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_out));
+        setupViewPager(pager);
+
+        indicator = (CirclePageIndicator)findViewById(R.id.pre_indicator);
+        indicator.setViewPager(pager);
+        indicator.setSnap(true);
+        pager.setOffscreenPageLimit(5);
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        background.setImageResource(R.drawable.basketball);
+                        break;
+                    case 1:
+                        background.setImageResource(R.drawable.baseball);
+                        break;
+                    case 2:
+                        background.setImageResource(R.drawable.soccer);
+                        break;
+                    case 3:
+                        background.setImageResource(R.drawable.hiking);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         preLogin = (Button)findViewById(R.id.pre_login);
         preSignup = (Button)findViewById(R.id.pre_signup);
+        preFacebookLogin = (Button)findViewById(R.id.pre_facebook_login);
+        privacyPolicy = (TextView)findViewById(R.id.privacy_policy_txt);
 
         logo = (LinearLayout)findViewById(R.id.logo);
-
-        builder = new android.support.v7.app.AlertDialog.Builder(preLayout.this);
-
-        preLogin.setOnClickListener(new View.OnClickListener() {
+        privacyPolicy.setText(Html.fromHtml("<u>이용약관</u>"));
+        privacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(preLayout.this, PrivacyPolicy.class);
+                startActivity(intent);
+            }
+        });
+        //로그인 다이얼로그 띄우기
+       preLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog = DialogLogin();
@@ -89,25 +154,38 @@ public class preLayout extends AppCompatActivity {
             }
         });
 
+        //회원가입 페이지로 이동
         preSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(preLayout.this, Certificate.class);
+                intent.putExtra("token", logintoken);
                 startActivity(intent);
             }
         });
     }
 
+    private void setupViewPager(ViewPager viewPager) {
+        LoginPagerAdapter adapter = new LoginPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new main_fragment_1());
+        adapter.addFrag(new main_fragment_2());
+        adapter.addFrag(new main_fragment_3());
+        adapter.addFrag(new main_fragment_4());
+        viewPager.setAdapter(adapter);
+    }
 
+
+
+    // 로그인 다이얼로그
     private AlertDialog DialogLogin(){
         final View innerView = getLayoutInflater().inflate(R.layout.login_dialog, null);
         final AlertDialog.Builder build = new AlertDialog.Builder(this);
 
-        LoadPreference(getApplicationContext());
         loginBt = (Button)innerView.findViewById(R.id.login_bt);
         loginEmailText =(EditText)innerView.findViewById(R.id.login_id);
         loginPasswordText = (EditText)innerView.findViewById(R.id.login_pw);
 
+        //로그아웃 했을때 직전까지 로그인 되있던 이메일 입력
         loginEmailText.setText(loginEmail);
 
         build.setView(innerView);
@@ -123,9 +201,6 @@ public class preLayout extends AppCompatActivity {
                     alertDialog2.show();
                 } else {
                     Login();
-
-
-//                    alertDialog.dismiss();
                 }
 
 
@@ -165,6 +240,7 @@ public class preLayout extends AppCompatActivity {
         return build.create();
     }
 
+    //잘못 입력했음을 알려주는 다이얼로그
     private AlertDialog DialogWrong(){
         final AlertDialog.Builder build = new AlertDialog.Builder(this);
         build.setTitle("이메일, 비밀번호 오류");
@@ -178,7 +254,7 @@ public class preLayout extends AppCompatActivity {
         });
         return build.create();
     }
-
+    // 네트워크 오류 다이얼로그
     private AlertDialog DialogNetwork(){
         final AlertDialog.Builder build = new AlertDialog.Builder(this);
         build.setTitle("인터넷 연결 오류");
@@ -192,16 +268,20 @@ public class preLayout extends AppCompatActivity {
         });
         return build.create();
     }
+
+    //로그인 메서드
     public void Login(){
         final ProgressDialog dialog = ProgressDialog.show(this, "", "잠시만 기다려 주세요",true);
 
         new Thread(){
             @Override
             public void run() {
+                //서버 연결 메서드
                 ConnectServer();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //서버 연결이 끝난 뒤 처리해주는 메서드
                         LoginEnd();
 
                     }
@@ -210,25 +290,25 @@ public class preLayout extends AppCompatActivity {
             }
         }.start();
     }
-
     private void LoginEnd(){
 
+        //리퀘스트 받은 텍스트 저장
         String result = serverResult;
 
         int code = 0;
         String msg = "";
-        String account = null, userno = null, userEmail= null, userPw= null, userName= null, userProfileimg= null, userStatus= null, userGrade= null, userToken= null;
+        String account = null, userno = null, userEmail= null, userPw= null, userName= null, userProfileimg= null, userStatus= null, userGrade= null, userToken= null, userPhone = null, userBirth = null, userGender = null;
 
         if (result == null){
             return;
         }
         try{
+            //json 형태의 리퀘스트를 분해, 저장
             JSONObject json = new JSONObject(result);
             code = json.getInt("code");
             msg = json.getString("message");
             account = json.getString("account");
             JSONObject accountJson = new JSONObject(account);
-
             userno = accountJson.getString("userno");
             userEmail = accountJson.getString("email");
             userPw = accountJson.getString("pw");
@@ -237,6 +317,9 @@ public class preLayout extends AppCompatActivity {
             userStatus = accountJson.getString("status");
             userGrade = accountJson.getString("grade");
             userToken = json.getString("token");
+            userBirth = json.getString("birth");
+            userGender = json.getString("gender");
+            userPhone = json.getString("phone");
         } catch (JSONException e) {
             e.printStackTrace();
 
@@ -248,22 +331,22 @@ public class preLayout extends AppCompatActivity {
         }
 
         if (code == 700){
-//            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            //code 700 제대로 된 송수신을 의미
+            //기본적으로 모든 앱 내부에서 사용되는 email, pw, 유저 고유번호 이름 을 저장
+            SavePreference("userno", userno, this);
+            SavePreference("email", loginEmail, this);
+            SavePreference("pw", loginPassword, this);
+            SavePreference("name", userName, this);
+            SavePreference("profileimg", userProfileimg, this);
+            SavePreference("statue", userStatus, this);
+            SavePreference("grade", userGrade, this);
+            SavePreference("birth", userBirth, this);
+            SavePreference("gender", userGender, this);
+            SavePreference("phone", userPhone, this);
 
-            SavePreference("email", loginEmail, getApplicationContext());
-            SavePreference("pw", loginPassword, getApplicationContext());
-            SavePreference("token", logintoken, getApplicationContext());
-
+            //제대로 로그인 된 것이므로 메인 페이지로 이동
             Intent intent = new Intent(this, MainPage.class);
-            intent.putExtra("userno", userno)
-                    .putExtra("email", userEmail)
-                    .putExtra("pw", userPw)
-                    .putExtra("name", userName)
-                    .putExtra("profileimg", userProfileimg)
-                    .putExtra("status", userStatus)
-                    .putExtra("grade", userGrade)
-                    .putExtra("token", userToken);
-
+            intent.putExtra("token", userToken);
             startActivity(intent);
             preLayout.this.finish();
             Log.d("Sucess", result);
@@ -277,11 +360,6 @@ public class preLayout extends AppCompatActivity {
                 }
             });
             Log.d("failed", code + " " + msg);
-
-//            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-//            Log.d("failed", result);
-
-
         }
     }
     private void ConnectServer(){
@@ -300,7 +378,6 @@ public class preLayout extends AppCompatActivity {
             http.setDoInput(true);
             http.setDoOutput(true);
             http.setRequestMethod("POST");
-//            http.setRequestProperty("content-type", "application/x-www-form-urlencoded");
 
             OutputStreamWriter outStream = new OutputStreamWriter(http.getOutputStream(), "UTF-8");
             PrintWriter writer = new PrintWriter(outStream);
@@ -414,6 +491,16 @@ public class preLayout extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         loginEmail= sharedPreferences.getString("email", null);
         loginPassword= sharedPreferences.getString("pw", null);
+    }
+
+    @Override
+    public View makeView() {
+        ImageView back = new ImageView(this);
+        back.setBackgroundColor(0x000000);
+        back.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        back.setLayoutParams(new ImageSwitcher.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        back.setImageResource(R.drawable.basketball);
+        return back;
 
     }
 }

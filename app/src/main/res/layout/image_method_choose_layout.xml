@@ -20,10 +20,10 @@
             android:id="@+id/select_gallery"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:padding="24dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_image_black_48dp"
+            android:src="@drawable/ic_image"
             android:background="#00ffffff"
             />
         <TextView
@@ -42,10 +42,10 @@
             android:id="@+id/select_camera"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:padding="24dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_camera_alt_black_48dp"
+            android:src="@drawable/ic_photo_camera_black"
             android:background="#00ffffff"
             />
         <TextView

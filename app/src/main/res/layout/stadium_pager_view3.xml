@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleMarginStart="16dp"
+            >
+            <RelativeLayout
+                android:id="@+id/map_view"
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="pin"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#4a000000"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="pin"
+                />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tool_bar_stadium"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:layout_collapseMode="pin"
+                />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/stadium_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabTextColor="#000000"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabBackground="@color/background_material_dark"
+            app:tabIndicatorColor="@color/colorPrimary"
+            android:layout_gravity="bottom"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/view_pager_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginBottom="48dp"
+        >
+        <android.support.v4.view.ViewPager
+            android:id="@+id/stadium_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/team_logo"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_edit"-->
+        <!--android:layout_margin="16dp"-->
+        <!--app:layout_anchor="@id/appbar"-->
+        <!--app:layout_anchorGravity="bottom|right"-->
+        <!--app:elevation="12dp"-->
+        <!--app:fabSize="normal"-->
+        <!--/>-->
+</android.support.design.widget.CoordinatorLayout>
+
+

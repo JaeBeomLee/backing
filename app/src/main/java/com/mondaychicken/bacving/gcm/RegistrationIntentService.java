@@ -8,7 +8,8 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
+
 
 import java.io.IOException;
 

@@ -2,26 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/star"
+            android:icon="@drawable/ic_home"
+            android:id="@+id/main"
             android:checked="false"
-            android:title="즐겨찾기" />
+            android:title="박빙 홈" />
 
         <item
-            android:id="@+id/setting"
-            android:checked="false"
-            android:title="설정하기" />
-
-        <item
-            android:id="@+id/intro"
-            android:checked="false"
-            android:title="어플소개" />
-
-        <item
+            android:icon="@drawable/ic_info"
             android:id="@+id/notice"
             android:checked="false"
-            android:title="회원공지" />
+            android:title="공지사항" />
 
         <item
+            android:icon="@drawable/ic_settings"
+            android:id="@+id/setting"
+            android:checked="false"
+            android:title="설정" />
+
+        <item
+            android:icon="@drawable/ic_search"
+            android:id="@+id/matching"
+            android:checked="false"
+            android:title="매칭검색" />
+
+        <item
+            android:icon="@drawable/ic_exit"
             android:id="@+id/log_out"
             android:checked="false"
             android:title="로그아웃" />

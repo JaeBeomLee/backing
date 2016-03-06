@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff4433</color>
-    <color name="colorPrimaryDark">#e53935</color>
-    <color name="colorAccent">#ff4433</color>
+    <color name="colorPrimary">#e74c3c</color>
+    <color name="colorPrimaryDark">#cd4334</color>
+    <color name="colorAccent">#e74c3c</color>
+
+    <color name="rateColor">#E79402</color>
+
+    <color name="colorPrimary_team">#3F51B5</color>
+    <color name="colorPrimaryDark_team">#303F9F</color>
+    <color name="colorAccent_team">#303F9F</color>
+    <color name="dark">#8affffff</color>
+    <color name="grey">#888888</color>
     <color name="primary_text_disabled_material_light">#000000</color>
     <color name="primary_text_default_material_light">#deffffff</color>
     <color name="secondary_text_default_material_light">#c5ffffff</color>
     <color name="secondary_text_disabled_material_dark">#36000000</color>
     <color name="primary_text_default">#de000000</color>
     <color name="background_material_dark">#ffffff</color>
-    <color name="primary_text_default_material_dark">#000000</color>
-    <color name="secondary_text_default_material_dark">#dfffffff</color>
+    <color name="primary_text_default_material_dark">#de000000</color>
+    <color name="secondary_text_default_material_dark">#df3f3f3f</color>
     <color name="secondary_text_disabled_material_light">#a6ffffff</color>
+    <color name="primary_material_dark">#61212121</color>
 
 
 </resources>

@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
 
 /**
  * Created by ijaebeom on 2015. 9. 4..

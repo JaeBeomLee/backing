@@ -50,10 +50,11 @@ public class splash extends AppCompatActivity {
     String logintoken;
     private BroadcastReceiver RegistrationBroadcastReceiver;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LoadPreference(getApplicationContext());
+        LoadPreference(this);
 
         registBroadcastReceiver();
         getInstanceIdToken();
@@ -61,24 +62,24 @@ public class splash extends AppCompatActivity {
         handler = new Handler();
         builder = new android.support.v7.app.AlertDialog.Builder(splash.this);
         Random r = new Random();
-        setContentView(bacving.lee.bacving_main.R.layout.splash);
+        setContentView(com.mondaychicken.bacving.R.layout.splash);
         int imageRandom = r.nextInt(4)+1;
-        background = (ImageView)findViewById(bacving.lee.bacving_main.R.id.splash_background);
+        background = (ImageView)findViewById(com.mondaychicken.bacving.R.id.splash_background);
         switch (imageRandom){
             case 1:
-                background.setImageResource(bacving.lee.bacving_main.R.drawable.baseball);
+                background.setImageResource(com.mondaychicken.bacving.R.drawable.baseball);
                 break;
             case 2:
-                background.setImageResource(bacving.lee.bacving_main.R.drawable.basketball);
+                background.setImageResource(com.mondaychicken.bacving.R.drawable.basketball);
                 break;
             case 3:
-                background.setImageResource(bacving.lee.bacving_main.R.drawable.hiking);
+                background.setImageResource(com.mondaychicken.bacving.R.drawable.hiking);
                 break;
             case 4:
-                background.setImageResource(bacving.lee.bacving_main.R.drawable.soccer);
+                background.setImageResource(com.mondaychicken.bacving.R.drawable.soccer);
                 break;
             case 5:
-                background.setImageResource(bacving.lee.bacving_main.R.drawable.ground);
+                background.setImageResource(com.mondaychicken.bacving.R.drawable.ground);
                 break;
         }
         if (email != null && pw != null){
@@ -90,14 +91,12 @@ public class splash extends AppCompatActivity {
             }, 800);
 
         }else if (email == null || pw == null){
-
-
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Intent intent = new Intent(splash.this, preLayout.class);
                     startActivity(intent);
-                    overridePendingTransition(bacving.lee.bacving_main.R.anim.fade, bacving.lee.bacving_main.R.anim.hold);
+                    overridePendingTransition(com.mondaychicken.bacving.R.anim.fade, com.mondaychicken.bacving.R.anim.hold);
                     splash.this.finish();
                 }
             }, 2000);
@@ -147,7 +146,7 @@ public class splash extends AppCompatActivity {
 
         int code = 0;
         String msg = "";
-        String account = null,userno = null, userEmail= null, userPw= null, userName= null, userProfileimg= null, userStatus= null, userGrade= null, userToken= null;
+        String account = null, userno = null, userEmail= null, userPw= null, userName= null, userProfileimg= null, userStatus= null, userGrade= null, userToken= null, userPhone = null, userBirth = null, userGender = null;
 
         try{
             JSONObject json = new JSONObject(result);
@@ -164,6 +163,9 @@ public class splash extends AppCompatActivity {
             userStatus = accountJson.getString("status");
             userGrade = accountJson.getString("grade");
             userToken = json.getString("token");
+            userBirth = accountJson.getString("birth");
+            userGender = accountJson.getString("gender");
+            userPhone = accountJson.getString("phone");
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (NullPointerException e){
@@ -175,26 +177,37 @@ public class splash extends AppCompatActivity {
         if (code == 700){
 //            Toast.makeText(splash.this, msg, Toast.LENGTH_SHORT).show();
 
-            SavePreference("token", logintoken, getApplicationContext());
-
+//            SavePreference("token", logintoken, getApplicationContext());
+            SavePreference("userno", userno, this);
+            SavePreference("email", userEmail, this);
+            SavePreference("pw", pw, this);
+            SavePreference("name", userName, this);
+            SavePreference("profileimg", userProfileimg, this);
+            SavePreference("statue", userStatus, this);
+            SavePreference("grade", userGrade, this);
+            SavePreference("birth", userBirth, this);
+            SavePreference("gender", userGender, this);
+            SavePreference("phone", userPhone, this);
             Intent intent = new Intent(splash.this, MainPage.class);
-            intent.putExtra("userno", userno)
-                    .putExtra("email", userEmail)
-                    .putExtra("pw", userPw)
-                    .putExtra("name", userName)
-                    .putExtra("profileimg", userProfileimg)
-                    .putExtra("status", userStatus)
-                    .putExtra("grade", userGrade)
-                    .putExtra("token", userToken);
-
+            intent.putExtra("token", userToken);
             startActivity(intent);
-            overridePendingTransition(bacving.lee.bacving_main.R.anim.fade, bacving.lee.bacving_main.R.anim.hold);
+            overridePendingTransition(com.mondaychicken.bacving.R.anim.fade, com.mondaychicken.bacving.R.anim.hold);
             splash.this.finish();
             Log.d("Sucess", result);
+        }else if(code == 412){
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(), "로그인에 문제가 발생했습니다.", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(splash.this, preLayout.class);
+                    startActivity(intent);
+                    overridePendingTransition(com.mondaychicken.bacving.R.anim.fade, com.mondaychicken.bacving.R.anim.hold);
+                    finish();
+                    splash.this.finish();
+                }
+            });
         }else{
-//            Intent intent = new Intent(splash.this, preLayout.class);
-//            startActivity(intent);
-//            Toast.makeText(splash.this, result, Toast.LENGTH_SHORT).show();
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
                 @Override
@@ -208,6 +221,17 @@ public class splash extends AppCompatActivity {
 
 //            Log.d("failed", result);
 
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        background = null;
+        try {
+            this.finalize();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
         }
     }
 
@@ -337,6 +361,4 @@ public class splash extends AppCompatActivity {
             }
         };
     }
-
-
 }

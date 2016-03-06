@@ -8,15 +8,15 @@ import android.net.Uri;
  */
 public class mainTabFragmentMainData {
     String teamName;
-    Bitmap teamLogo, mainBackground;
+    String teamLogo, mainBackground;
 
     String nextMatch,  matchDataYear, matchDataMonth ,matchDataDate, matchDataApm, matchDataHour, matchDataMinute, matchStadium;
 
-    public void setTeamLogo(Bitmap teamLogo) {
+    public void setTeamLogo(String teamLogo) {
         this.teamLogo = teamLogo;
     }
 
-    public void setMainBackground(Bitmap mainBackground) {
+    public void setMainBackground(String mainBackground) {
         this.mainBackground = mainBackground;
     }
 
@@ -24,11 +24,11 @@ public class mainTabFragmentMainData {
         this.teamName = teamName;
     }
 
-    public Bitmap getTeamLogo() {
+    public String getTeamLogo() {
        return teamLogo;
     }
 
-    public Bitmap getMainBackground() {
+    public String getMainBackground() {
         return mainBackground;
     }
 

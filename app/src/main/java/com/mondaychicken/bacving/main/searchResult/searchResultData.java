@@ -7,10 +7,14 @@ import android.net.Uri;
  * Created by ijaebeom on 2015. 9. 15..
  */
 public class searchResultData {
-    Bitmap searchResultImage;
-    String searchResultName, searchResult2nd, searchResult3rd;
+    String searchResultImage,searchResultName, searchResult2nd, searchResult3rd;
+    int searchResultNum;
 
-    public void setSearchResultImage(Bitmap searchResultImage) {
+    public void setSearchResultNum(int searchResultNum) {
+        this.searchResultNum = searchResultNum;
+    }
+
+    public void setSearchResultImage(String searchResultImage) {
         this.searchResultImage = searchResultImage;
     }
 
@@ -26,7 +30,11 @@ public class searchResultData {
         this.searchResult3rd = searchResult3rd;
     }
 
-    public Bitmap getSearchResultImage() {
+    public int getSearchResultNum() {
+        return searchResultNum;
+    }
+
+    public String getSearchResultImage() {
         return searchResultImage;
     }
 

@@ -4,17 +4,18 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
 
 /**
  * Created by ijaebeom on 15. 7. 27..
  */
 
 //지금 안씁니다. Cerificate로 통합됩니다.
-public class smsNumber extends ActionBarActivity {
+public class smsNumber extends AppCompatActivity {
 
     EditText phoneNumber;
     Button numButton;

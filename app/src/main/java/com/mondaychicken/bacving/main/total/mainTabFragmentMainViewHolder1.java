@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
+import com.mondaychicken.bacving.main.MainPage;
 import com.mondaychicken.bacving.teamPlayer.teamActivity;
 
 /**
@@ -28,12 +29,12 @@ public class mainTabFragmentMainViewHolder1 extends mainTabFragmentViewHolder im
 
     @Override
     public void onClick(View v) {
+        // 이 리스트 하나를 클릭헸을때 반응하는 이벤트
         Intent intent = new Intent(context, teamActivity.class);
-        intent.putExtra("teamName", mainTeamName.getText().toString());
-        intent.putExtra("teamLogo", mainTabFragment.logoUrl);
-        intent.putExtra("teamBackground", mainTabFragment.backgroundUrl);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("leader_idx", mainTabFragment.leader_idx[getLayoutPosition()]);
+        intent.putExtra("team_idx", mainTabFragment.team_idx[getLayoutPosition()]);
         context.startActivity(intent);
+        MainPage.MainPage.finish();
         Log.d("touch","num : " +getLayoutPosition());
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lee.bacving_main" >
+    package="com.mondaychicken.bacving" >
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -19,7 +19,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
-        android:theme="@style/bacving_theme" >
+        android:theme="@style/bacving_theme"
+        >
         <activity android:name=".splash"
             android:screenOrientation="portrait"
             android:theme="@style/bacving_theme_all"
@@ -45,7 +46,7 @@
 
         <!-- [START gcm_listener_service] -->
         <service
-            android:name="com.lee.bacving_main.gcm.MyGcmListenerService"
+            android:name=".gcm.MyGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -55,7 +56,7 @@
 
         <!-- [START instanceId_listener_service] -->
         <service
-            android:name="com.lee.bacving_main.gcm.MyInstanceIDListenerService"
+            android:name=".gcm.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
@@ -65,56 +66,95 @@
 
         <!-- [START gcm_registration_service] -->
         <service
-            android:name="com.lee.bacving_main.gcm.RegistrationIntentService"
+            android:name=".gcm.RegistrationIntentService"
             android:exported="false"></service>
         <!-- [END gcm_registration_service] -->
-        <activity android:name=".Login.preLayout"
-            android:screenOrientation="portrait"
-            android:theme="@style/bacving_theme_all"
-            >
-        </activity>
-        <activity android:name=".Login.Certificate"
-            android:screenOrientation="portrait"
-            >
-        </activity>
-
-        <activity android:name=".Login.signUp"
-            android:screenOrientation="portrait"
-            >
-
-        </activity>
         <activity
             android:name=".main.MainPage"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             >
-
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
+        <activity android:name=".Login.preLayout"
+            android:screenOrientation="portrait"
+            android:theme="@style/bacving_theme_all"
+            />
+        <activity android:name=".Login.Certificate"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Login.signUp"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".Login.PrivacyPolicy"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".main.searchResult.searchResultActivity"
             android:screenOrientation="portrait"
-            >
-        </activity>
+            />
         <activity android:name=".teamPlayer.teamActivity"
             android:screenOrientation="portrait"
-            >
-
-        </activity>
+            android:theme="@style/bacving_theme_all"
+            />
         <activity android:name=".stadium.stadiumActivity"
             android:screenOrientation="portrait"
-            >
-        </activity>
+            />
+        <activity android:name=".teamPlayer.change.createActivity"
+            android:theme="@style/bacving_theme_team"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".matching.matchingSearch"
+            android:theme="@style/bacving_theme_team"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".matching.matchingSearchResultActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".matching.matchingSearchResultItemActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".matching.matchingTeamRegister"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".main.etc.notice"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".teamPlayer.setting.setting"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".main.etc.setting"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".teamPlayer.change.updateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".main.etc.updateProfile"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".teamPlayer.change.memberUpdateActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".stadium.createStadiumActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".map.search.mapSearch"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".teamPlayer.memberJoinList.joinListActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".cropActivity"
+            android:screenOrientation="portrait"
+            />
         <receiver android:name=".Login.sms_receiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

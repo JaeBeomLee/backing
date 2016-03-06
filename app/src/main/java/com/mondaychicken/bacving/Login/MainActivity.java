@@ -5,7 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
 
 //안쓰는 중입니다.
 public class MainActivity extends ActionBarActivity {

@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import bacving.lee.bacving_main.R;
+import com.mondaychicken.bacving.R;
 
 /**
  * Created by ijaebeom on 15. 7. 27..

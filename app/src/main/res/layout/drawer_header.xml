@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_header"
+    style="@style/bacving_theme"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,35 +14,60 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/capetown2"
+            android:background="@color/colorPrimary"
             android:scaleType="centerCrop"
             />
+        <LinearLayout
+            android:id="@+id/header_profile_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            >
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="2dp"
+                android:background="#00ffffff"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_edit"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="편집"
+                android:textSize="14dp"
+                android:textColor="#ffffff"
+                />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/user_profile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 app:border_width="1dp"
                 app:border_color="#ffffff"
-                android:src="@drawable/hyuk_jin"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:src="@drawable/circle_emblem"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:text="이름이름이름"
+                android:layout_marginTop="16dp"
+                android:text="이재범"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:id="@+id/username"
-                android:layout_below="@+id/userImg"
-                android:layout_centerHorizontal="true" />
+                />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
