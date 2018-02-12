@@ -45,7 +45,7 @@ public class playerFragment extends Fragment{
     LinearLayoutManager manager;
     int position = 0;
 
-    private String server = "http://aws.bacving.com/api/team/index.php";
+    private String server = "http://api.bacving.com/api/team/index.php";
     private String serverResult, userNo, userName, token;
     AlertDialog alertDialog2;
     private String scheduleSubMonth;

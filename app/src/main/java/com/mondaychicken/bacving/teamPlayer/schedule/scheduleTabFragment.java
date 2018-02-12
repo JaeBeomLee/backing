@@ -45,7 +45,7 @@ public class scheduleTabFragment extends Fragment{
     int position = 0;
 
     private String scheduleYear, scheduleMonth ,scheduleDate, scheduleApm, scheduleHour, scheduleMinute, scheduleStadium, scheduleDateVisual, scheduleDayVisual, scheduleSubMonth;
-    private String server = "http://aws.bacving.com/api/match/myProgressList.php", serverResult;
+    private String server = "http://api.bacving.com/api/match/myProgressList.php", serverResult;
     //다이얼로그에 필요한 Bundle과 Context
     Bundle bundle;
     Context context;

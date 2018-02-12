@@ -50,8 +50,8 @@ public class searchResultActivity extends AppCompatActivity {
     Bitmap bit;
     private AlertDialog alertDialog2 = null;
     private String teamResult, stadiumResult, userNo, userName, token;
-    private String teamServer = "http://aws.bacving.com/api/team/index.php";
-    private String stadiumServer = "http://aws.bacving.com/api/stadium/search.php";
+    private String teamServer = "http://api.bacving.com/api/team/index.php";
+    private String stadiumServer = "http://api.bacving.com/api/stadium/search.php";
     static stadiumInfo stadiuminfo[] = null;
     static teamInfo teaminfo[] = null;
     static int teamNum[] = null;

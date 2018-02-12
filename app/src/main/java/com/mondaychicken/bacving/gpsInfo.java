@@ -145,7 +145,7 @@ public class gpsInfo extends Service implements LocationListener {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivity(intent);
+                        context.startActivity(intent);
                     }
                 });
         // Cancle 하면 종료 합니다.

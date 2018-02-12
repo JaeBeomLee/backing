@@ -64,7 +64,7 @@ public class createStadiumActivity extends AppCompatActivity {
     MapView mapView;
     String MapApiKey = "0b42f43598ab66b672d55c2364b29e5b";
     
-    String server = "http://aws.bacving.com/api/stadium/create.php";
+    String server = "http://api.bacving.com/api/stadium/create.php";
     String serverResult;
 
     @Override

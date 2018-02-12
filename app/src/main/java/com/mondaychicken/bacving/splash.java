@@ -82,15 +82,16 @@ public class splash extends AppCompatActivity {
                 background.setImageResource(com.mondaychicken.bacving.R.drawable.ground);
                 break;
         }
-        if (email != null && pw != null){
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Login();
-                }
-            }, 800);
-
-        }else if (email == null || pw == null){
+//        if (email != null && pw != null){
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+////                    임시
+//                    Login();
+//                }
+//            }, 800);
+//
+//        }else if (email == null || pw == null){
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -100,7 +101,7 @@ public class splash extends AppCompatActivity {
                     splash.this.finish();
                 }
             }, 2000);
-        }
+//        }
     }
 
     @Override

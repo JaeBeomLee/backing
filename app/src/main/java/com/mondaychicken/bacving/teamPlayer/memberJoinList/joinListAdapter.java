@@ -46,7 +46,7 @@ public class joinListAdapter extends RecyclerView.Adapter<joinListViewHolder>{
     AlertDialog alertDialog2;
     boolean isNone;
     private String serverResult, userNo, userName, token;
-    private String server = "http://aws.bacving.com/api/team/accept.php";
+    private String server = "http://api.bacving.com/api/team/accept.php";
 
     public void add(joinListData main, int position){
         joinListDatas.add(position, main);

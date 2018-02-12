@@ -54,7 +54,7 @@ public class matchingSearchResultActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     LinearLayoutManager manager;
     int position = 0;
-    String server = "http://aws.bacving.com/api/match/waiting_list.php";
+    String server = "http://api.bacving.com/api/match/waiting_list.php";
     String teamServer = "http://52.68.69.47/api/team/index.php";
     //static 인 이유는 매칭 등록에 필요한 정보들이라서 넘겨줘야 하기 때문
     static String sport_idx, location, matchType, time, date, month, year, team_idx, teamName;

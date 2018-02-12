@@ -889,6 +889,8 @@ public class createActivity extends AppCompatActivity {
         return build.create();
     }
 
+
+
     public void saveImageFile(Bitmap bitmap){
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath()+ "/bacving/";
         switch (checkImage){

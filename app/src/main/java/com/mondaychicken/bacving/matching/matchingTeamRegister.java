@@ -58,8 +58,8 @@ import java.util.List;
 public class matchingTeamRegister extends AppCompatActivity{
     String matchType, location, time, date, month, year, hour, minute, teamName, team_idx;
     Button typeBtn1, typeBtn2, registerDate, registerTime, finishBtn;
-    String server = "http://aws.bacving.com/api/stadium/info.php";
-    String registerServer = "http://aws.bacving.com/api/match/waiting.php";
+    String server = "http://api.bacving.com/api/stadium/info.php";
+    String registerServer = "http://api.bacving.com/api/match/waiting.php";
     String stadiumName[], userno, token, stadium_idx[], sport_idx, serverResult, stadiumNum;
     double latitude, longitude;
     int permissionCheckGPS;

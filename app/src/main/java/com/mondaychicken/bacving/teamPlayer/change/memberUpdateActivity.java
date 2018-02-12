@@ -99,7 +99,7 @@ public class memberUpdateActivity extends AppCompatActivity {
             data.append("token").append("=").append(token).append("&");
             data.append("nickname").append("=").append(getNickname);
 
-            URL url = new URL("http://aws.bacving.com/api/team/member_update.php");
+            URL url = new URL("http://api.bacving.com/api/team/member_update.php");
             HttpURLConnection http = (HttpURLConnection)url.openConnection();
             http.setDefaultUseCaches(false);
             http.setDoInput(true);

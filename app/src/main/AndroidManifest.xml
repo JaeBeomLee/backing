@@ -108,7 +108,9 @@
         <activity android:name=".teamPlayer.change.createActivity"
             android:theme="@style/bacving_theme_team"
             android:screenOrientation="portrait"
-            />
+            >
+
+        </activity>
         <activity android:name=".matching.matchingSearch"
             android:theme="@style/bacving_theme_team"
             android:screenOrientation="portrait"

@@ -43,7 +43,7 @@ import java.net.URL;
  */
 public class matchingSearch extends AppCompatActivity {
     String matchType, time, serverResult;
-    String server = "http://aws.bacving.com/api/member/info.php";
+    String server = "http://api.bacving.com/api/member/info.php";
     String mainTeamName[], userno, token, team_idx[], sport_idx[], region_code[], teamNum, sportNum, regionCode;
 
     DatePicker picker;

@@ -50,7 +50,7 @@ public class matchingSearchResultItemActivity extends AppCompatActivity {
     RelativeLayout map;
     int permissionCheck;
     MapView mapView;
-    String server = "http://aws.bacving.com/api/match/request.php";
+    String server = "http://api.bacving.com/api/match/request.php";
     String serverResult, userno, token;
     private AlertDialog alertDialog2 = null;
     TextView name, time, place, matchType;

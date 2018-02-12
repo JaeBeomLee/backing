@@ -62,8 +62,8 @@ public class Certificate extends AppCompatActivity {
     Handler handlerTimer;
 
     int time = 180000; //회원 인증 만료 시간
-    String certUrl = "http://aws.bacving.com/api/member/join/request.php";
-    String checkUrl = "http://aws.bacving.com/api/member/join/check.php";
+    String certUrl = "http://api.bacving.com/api/member/join/request.php";
+    String checkUrl = "http://api.bacving.com/api/member/join/check.php";
     String serverResult;
     String token;
     @Override

@@ -50,7 +50,7 @@ public class matchingResultActivity extends AppCompatActivity{
     EditText teamAScore, teamBScore;
     CircleImageView teamAProfile, teamBProfile;
     Button registerBtn;
-    String server = "http://aws.bacving.com/api/match/post_result.php";
+    String server = "http://api.bacving.com/api/match/post_result.php";
     //m_idx(매칭 인덱스), w_idx(대기 신청 팀 인덱), w_point(대기 신청 팀 스코어), p_idx( 신청 팀 인덱), p_point(신청 팀 스코어)
     String serverResult, userno, token, m_idx, w_idx, w_point, p_idx, p_point;
     String stadiumS, dateS, timeS, teamANameS, teamBNameS, AProfileUrl, BProfileUrl, AScore, BScore;

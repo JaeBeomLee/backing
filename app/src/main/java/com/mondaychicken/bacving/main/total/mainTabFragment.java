@@ -44,7 +44,7 @@ public class mainTabFragment extends Fragment{
     String mainTeamName[], userno, token;
     static String mainBackgroundUrl[], mainTeamLogoUrl[], leader_idx[], team_idx[];
     JSONObject array[];
-    String server = "http://aws.bacving.com/api/member/info.php";
+    String server = "http://api.bacving.com/api/member/info.php";
     String serverResult, teamCount;
     String subLeague, subApm, subHour, subMinute, subDate, subMonth, subYear, subNext,subStadium;
     //다이얼로그에 필요한 Context

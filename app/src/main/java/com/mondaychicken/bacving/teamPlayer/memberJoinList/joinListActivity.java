@@ -49,7 +49,7 @@ public class joinListActivity extends AppCompatActivity{
     LinearLayout none;
     int position = 0;
     private String serverResult, userNo, userName, token;
-    private String server = "http://aws.bacving.com/api/team/accept_list.php";
+    private String server = "http://api.bacving.com/api/team/accept_list.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

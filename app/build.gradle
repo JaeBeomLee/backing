@@ -38,6 +38,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.1.0'
     //뷰페이저 인디케이터
     compile 'com.viewpagerindicator:library:2.4.1@aar'
+
     //원형 이미지뷰
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.github.lzyzsd:circleprogress:1.1.0@aar'
